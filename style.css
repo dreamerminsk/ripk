@@ -1,0 +1,29 @@
+#flag {
+  margin: 0 auto;
+  width: 540px;
+  height: 270px;
+}
+
+#white {
+    float: left;
+    width: 60px;
+    height: 270px;
+    background-image: url(uCXZV_croper_ru.png);
+    background-size: 60px 270px;
+}
+#redgreen {
+    float: left;    
+}
+#green {
+    width: 480px;
+    height: 90px;
+    background-color: #4AA657;
+    float: left;
+    clear: both;
+}
+#red {
+    width: 480px;
+    height: 180px;
+    background-color: #C8313E;
+    float: left;    
+}

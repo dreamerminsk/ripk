@@ -1,0 +1,7 @@
+table {
+  margin: 0 auto;
+  border: 1px green;
+  border-collapse: collapse;
+  text-align: right;
+  font-size: 24;
+}

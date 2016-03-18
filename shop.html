@@ -1,0 +1,13 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <input type=range min=0 max=1000 id="range" name="count" onchange="changeRange(this)">
+    <input type=text id="text" onchange="document.getElementById('range').value = this.value">
+    <script>
+      function changeRange(r) {
+        document.getElementById('text').value = r.value;
+      }
+    </script>
+  </body>
+</html>
