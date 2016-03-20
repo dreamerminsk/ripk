@@ -11,6 +11,13 @@
     background-image: url(uCXZV_croper_ru.png);
     background-size: 60px 270px;
 }
+#white:hover {
+    float: left;
+    width: 60px;
+    height: 270px;
+    background-image: url(uCXZV_croper_ru_transform.png);
+    background-size: 60px 270px;
+}
 #redgreen {
     float: left;    
 }
@@ -21,9 +28,22 @@
     float: left;
     clear: both;
 }
+#green:hover {
+    width: 480px;
+    height: 90px;
+    background-color: #B559A8;
+    float: left;
+    clear: both;
+}
 #red {
     width: 480px;
     height: 180px;
     background-color: #C8313E;
+    float: left;    
+}
+#red:hover {
+    width: 480px;
+    height: 180px;
+    background-color: #37CEC1;
     float: left;    
 }
