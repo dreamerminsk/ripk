@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dreamerminsk/ripk/issues"
   },
-  "homepage": "https://github.com/dreamerminsk/ripk"
+  "homepage": "https://github.com/dreamerminsk/ripk",
+  "dependencies": {
+    "esbuild": "^0.15.16"
+  }
 }
