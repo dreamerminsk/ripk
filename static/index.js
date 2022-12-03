@@ -1,1 +1,1 @@
-window.addEventListener("error",e=>{alert(`${e.message}`)});
+var t=class{#e;constructor(e){this.#e=e}name(){return this.#e.name}size(){return this.#e.size}async arrayBuffer(e,n){return await this.#e.slice(e,n).arrayBuffer()}};window.addEventListener("error",r=>{let e=new t({});alert(`${r.message}, ${e}`)});
