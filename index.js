@@ -1,25 +1,4 @@
-class BufferedFile {
-
-    #source;
-
-    constructor(source) {
-        this.#source = source;
-    }
-
-    name() {
-        return this.#source.name;
-    }
-
-    size() {
-        return this.#source.size;
-    }
-
-    async arrayBuffer(start, end) {
-        let blob = this.#source.slice(start, end);
-        return await blob.arrayBuffer();
-    }
-
-}
+import BufferedFile from './BufferedFile.js';
 
 window.addEventListener("error", (event) => {
      alert(`${event.message}`);
