@@ -1,6 +1,77 @@
-var i=class{#e;constructor(e){this.#e=e}name(){return this.#e.name}size(){return this.#e.size}async arrayBuffer(e,n){return await this.#e.slice(e,n).arrayBuffer()}};window.addEventListener("error",t=>{let e=new i({});alert(`${t.message}, ${e}`)});function c(){return new Promise(t=>{let e=document.createElement("input");e.type="file",e.onchange=n=>{let r=Array.from(e.files);t(r[0])},e.click()})}function f(){setTimeout(u),c().then(function(t){document.querySelector("p#file-name").innerText=t&&t.name||"no file selected",t.name.endsWith(".mp3")?(mp3=new Mp3File(t),mp3.child().then(e=>{let n=document.querySelector("div.struct");n.innerHTML="",e.forEach(r=>n.innerHTML+=s(r))})):readTableDirectory(t).then(e=>{document.querySelector("div.struct").innerHTML=s(e);let n=[...e.records];n=n.sort(function(r,o){return r.offset-o.offset});for(let r of n)document.querySelector("div.struct").innerHTML+=s({name:names[r.tag]||r.tag,offset:r.offset,size:r.length})})})}function u(){document.querySelector("p#file-name").innerText="no file selected",document.querySelector("div.struct").innerHTML=""}function s(t){return`
+// BufferedFile.js
+var BufferedFile = class {
+  #source;
+  constructor(source) {
+    this.#source = source;
+  }
+  name() {
+    return this.#source.name;
+  }
+  size() {
+    return this.#source.size;
+  }
+  async arrayBuffer(start, end) {
+    let blob = this.#source.slice(start, end);
+    return await blob.arrayBuffer();
+  }
+};
+
+// index.js
+window.addEventListener("error", (event) => {
+  let bf = new BufferedFile({});
+  alert(`${event.message}, ${bf}`);
+});
+function selectFile() {
+  return new Promise((resolve) => {
+    let input = document.createElement("input");
+    input.type = "file";
+    input.onchange = (_) => {
+      let files = Array.from(input.files);
+      resolve(files[0]);
+    };
+    input.click();
+  });
+}
+function onClick() {
+  setTimeout(clear);
+  selectFile().then(function(file) {
+    document.querySelector("p#file-name").innerText = file && file.name || "no file selected";
+    if (file.name.endsWith(".mp3")) {
+      mp3 = new Mp3File(file);
+      mp3.child().then((c) => {
+        let parent = document.querySelector("div.struct");
+        parent.innerHTML = "";
+        c.forEach((child) => parent.innerHTML += blockView(child));
+      });
+    } else {
+      readTableDirectory(file).then((td) => {
+        document.querySelector("div.struct").innerHTML = blockView(td);
+        let recs = [...td.records];
+        recs = recs.sort(function(a, b) {
+          return a.offset - b.offset;
+        });
+        for (const rec of recs) {
+          document.querySelector("div.struct").innerHTML += blockView({ name: names[rec.tag] || rec.tag, offset: rec.offset, size: rec.length });
+        }
+      });
+    }
+  });
+}
+function clear() {
+  document.querySelector("p#file-name").innerText = `no file selected`;
+  document.querySelector("div.struct").innerHTML = ``;
+}
+function blockView(block) {
+  return `
         <div class=struct-block>
-            <div class=struct-header>${t.name}</div>
-            <div class=struct-size>size: ${t.size}</div>
-            <div class=struct-offset>offset: ${t.offset}</div>
-        </div>`}export{s as blockView,u as clear,f as onClick,c as selectFile};
+            <div class=struct-header>${block.name}</div>
+            <div class=struct-size>size: ${block.size}</div>
+            <div class=struct-offset>offset: ${block.offset}</div>
+        </div>`;
+}
+export {
+  blockView,
+  clear,
+  onClick,
+  selectFile
+};

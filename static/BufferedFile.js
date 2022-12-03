@@ -1,1 +1,20 @@
-var t=class{#r;constructor(r){this.#r=r}name(){return this.#r.name}size(){return this.#r.size}async arrayBuffer(r,s){return await this.#r.slice(r,s).arrayBuffer()}};export{t as default};
+// BufferedFile.js
+var BufferedFile = class {
+  #source;
+  constructor(source) {
+    this.#source = source;
+  }
+  name() {
+    return this.#source.name;
+  }
+  size() {
+    return this.#source.size;
+  }
+  async arrayBuffer(start, end) {
+    let blob = this.#source.slice(start, end);
+    return await blob.arrayBuffer();
+  }
+};
+export {
+  BufferedFile as default
+};
