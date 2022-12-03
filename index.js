@@ -1,7 +1,8 @@
 import BufferedFile from './BufferedFile.js';
 
 window.addEventListener("error", (event) => {
-     alert(`${event.message}`);
+     let bf = new BufferedFile({});
+     alert(`${event.message}, ${bf}`);
 });
 
 function selectFile () {
