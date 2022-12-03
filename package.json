@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild index.js --bundle --out=app.js"
+    "build": "esbuild index.js --bundle --outfile=app.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dreamerminsk/ripk.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "mika teeuws",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dreamerminsk/ripk/issues"
