@@ -1,4 +1,1 @@
-// index.js
-window.addEventListener("error", (event) => {
-  alert(`${event.message}`);
-});
+window.addEventListener("error",e=>{alert(`${e.message}`)});
