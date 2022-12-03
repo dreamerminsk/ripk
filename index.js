@@ -5,7 +5,7 @@ window.addEventListener("error", (event) => {
      alert(`${event.message}, ${bf}`);
 });
 
-function selectFile () {
+export function selectFile () {
     return new Promise(resolve => {
         let input = document.createElement('input');
         input.type = 'file';
@@ -17,7 +17,7 @@ function selectFile () {
     });
 }
 
-function onClick() {
+export function onClick() {
     setTimeout(clear);
     selectFile().then(function(file) {
         document.querySelector("p#file-name").innerText = file && file.name || "no file selected";
@@ -42,12 +42,12 @@ function onClick() {
     });
 }
 
-function clear() {
+export function clear() {
     document.querySelector("p#file-name").innerText = `no file selected`;
     document.querySelector("div.struct").innerHTML = ``;
 }
 
-function blockView(block) {
+export function blockView(block) {
     return `
         <div class=struct-block>
             <div class=struct-header>${block.name}</div>
