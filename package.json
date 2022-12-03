@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild index.js BufferedFile.js --bundle --format=esm --outdir=out"
+    "build": "esbuild index.js BufferedFile.js --bundle --format=esm --outdir=static"
   },
   "repository": {
     "type": "git",
