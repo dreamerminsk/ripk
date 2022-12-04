@@ -1,66 +1,6 @@
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-// BufferedFile.js
-var _source;
-var BufferedFile = class {
-  constructor(source) {
-    __privateAdd(this, _source, void 0);
-    __privateSet(this, _source, source);
-  }
-  name() {
-    return __privateGet(this, _source).name;
-  }
-  size() {
-    return __privateGet(this, _source).size;
-  }
-  arrayBuffer(start, end) {
-    return __async(this, null, function* () {
-      let blob = __privateGet(this, _source).slice(start, end);
-      return yield blob.arrayBuffer();
-    });
-  }
-};
-_source = new WeakMap();
-
 // JpegFile.ts
 var JpegFile = class {
+  parent;
   constructor(parent) {
     this.parent = parent;
   }
