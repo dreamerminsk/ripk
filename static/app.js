@@ -1,8 +1,11 @@
 // JpegFile.ts
 var JpegFile = class {
-  parent;
+  _parent;
   constructor(parent) {
-    this.parent = parent;
+    this._parent = parent;
+  }
+  get parent() {
+    return this._parent;
   }
 };
 
