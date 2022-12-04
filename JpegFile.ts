@@ -1,3 +1,7 @@
+interface Block {
+    parent(): Block;
+}
+
 export default class JpegFile {
 
     private _parent: any;
