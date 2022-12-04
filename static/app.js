@@ -1,24 +1,12 @@
-// BufferedFile.js
-var BufferedFile = class {
-  #source;
-  constructor(source) {
-    this.#source = source;
-  }
-  name() {
-    return this.#source.name;
-  }
-  size() {
-    return this.#source.size;
-  }
-  async arrayBuffer(start, end) {
-    let blob = this.#source.slice(start, end);
-    return await blob.arrayBuffer();
+// JpegFile.ts
+var JpegFile = class {
+  constructor() {
   }
 };
 
 // index.js
 window.addEventListener("error", (event) => {
-  let bf = new BufferedFile({});
+  let bf = new JpegFile();
   alert(`${event.message}, ${bf}`);
 });
 function selectFile() {
