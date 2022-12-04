@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild index.js --bundle --format=esm --target=es2015 --outfile=./static/app.js"
+    "build": "esbuild index.js --bundle --format=esm --target=esnext --outfile=./static/app.js"
   },
   "repository": {
     "type": "git",
