@@ -6,7 +6,7 @@ export default class JpegFile {
         this._parent = parent;
     }
 
-    get parent: any {
+    get parent(): any {
         return this._parent;
     }
 
