@@ -1,7 +1,8 @@
 import BufferedFile from './BufferedFile.js';
+import JpegFile from './JpegFile.ts';
 
 window.addEventListener("error", (event) => {
-     let bf = new BufferedFile({});
+     let bf = new JpegFile();
      alert(`${event.message}, ${bf}`);
 });
 
