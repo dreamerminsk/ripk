@@ -1,9 +1,13 @@
 export default class JpegFile {
 
-    private parent: any;
+    private _parent: any;
     
     constructor(parent: any) {
-        this.parent = parent;
+        this._parent = parent;
+    }
+
+    get parent: any {
+        return this._parent;
     }
 
 }
