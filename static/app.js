@@ -61,7 +61,8 @@ _source = new WeakMap();
 
 // JpegFile.ts
 var JpegFile = class {
-  constructor() {
+  constructor(parent) {
+    this.parent = parent;
   }
 };
 
