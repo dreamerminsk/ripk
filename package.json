@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/dreamerminsk/ripk",
   "dependencies": {
-    "esbuild": "^0.15.17"
+    "esbuild": "^0.15.17",
+    "lit": "^2.4.1"
   }
 }
