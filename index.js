@@ -1,10 +1,13 @@
 import BufferedFile from './BufferedFile.js';
 import JpegFile from './JpegFile.ts';
+import SimpleGreeting from './SimpleGreeting.ts';
 
 window.addEventListener("error", (event) => {
      let bf = new JpegFile();
      alert(`${event.message}, ${bf}`);
 });
+
+window.customElements('simple-greeting', SimpleGreeting);
 
 export function selectFile () {
     return new Promise(resolve => {
