@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ 'master' ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ 'master' ]
 
 jobs:
   build:
@@ -25,3 +25,4 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: 'master'
