@@ -1,6 +1,7 @@
 // JpegFile.ts
 var JpegFile = class {
   _parent;
+  _offset = 0;
   constructor(parent) {
     this._parent = parent;
   }
