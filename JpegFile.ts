@@ -3,6 +3,8 @@ export default class JpegFile {
     private _parent: any;
 
     private _offset = 0;
+
+    private _length = 0;
     
     constructor(parent: any) {
         this._parent = parent;
