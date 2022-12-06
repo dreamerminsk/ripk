@@ -2,6 +2,7 @@
 var JpegFile = class {
   _parent;
   _offset = 0;
+  _length = 0;
   constructor(parent) {
     this._parent = parent;
   }
