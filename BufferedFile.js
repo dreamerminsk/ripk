@@ -14,8 +14,13 @@ export default class BufferedFile {
         return this.source.size;
     }
 
-    getUint8(byteOffset) {
-        const buffer = getBuffer(byteOffset);
+    async getUint8(byteOffset) {
+        const buffer = this.getBuffer(byteOffset);
+    }
+
+    async getBuffer(byteOffset) {
+        let idx = byteOffset >> 13;
+        return arrayBuffer(idx << 13, (idx + 1) << 13);
     }
 
     async arrayBuffer(start, end) {
