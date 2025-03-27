@@ -1,7 +1,5 @@
 export default class BufferedFile {
 
-    source;
-
     constructor(source) {
         this.source = source;
     }
